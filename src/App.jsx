@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Box, Container, CssBaseline, Grid, ThemeProvider, createTheme } from '@mui/material';
+import { Box, Container, CssBaseline, Grid, InputBase, ThemeProvider, createTheme } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomePage from './Pages/Homepage';
+import HomePage from './Pages/HomePage';
 
 import CountryDetails from './Pages/CountryDetails';
 
@@ -23,7 +23,7 @@ const App = () => {
               paper: '#fff',
             },
             text: {
-              primary: 'black',
+              primary: '#000000',
              secondary: '#2B3844',
             }
           }
@@ -51,45 +51,20 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-    <CssBaseline />
-    
-    <Router>
-    
-      {/* Navbar with text and light/dark mode */}
-      <Navbar toggleTheme={toggleTheme} mode={mode} />
+<ThemeProvider theme={theme}>
+  <CssBaseline />
 
-      {/* Main content, with Search Bar and Country Cards */}
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        {/* Search Bar and Filters Container */}
-        <Grid container spacing={4} sx={{ marginBottom: 4 }}>
-          {/* Search Bar */}
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: theme.palette.background.paper, borderRadius: 2, boxShadow: 3 }}>
-              {/* <SearchIcon sx={{ color: theme.palette.text.secondary, marginLeft: 2 }} />
-              <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Search countries"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              /> */}
-            </Box>
-          </Grid>
+  <Router>
+    {/* Navbar with light/dark mode toggle */}
+    <Navbar toggleTheme={toggleTheme} mode={mode} />
 
-          {/* Filter Placeholder */}
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: theme.palette.background.paper, borderRadius: 2, boxShadow: 3 }}>
-              {/* You can add filter UI elements here */}
-            </Box>
-          </Grid>
-        </Grid>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/country/:id" element={<CountryDetails />} />
-        </Routes>
-        </Container>
-      </Router>
-    </ThemeProvider>
+    {/* Routing to pages */}
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/country/:id" element={<CountryDetails />} />
+    </Routes>
+  </Router>
+</ThemeProvider>
   );
 };
 
