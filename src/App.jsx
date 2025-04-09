@@ -33,8 +33,8 @@ const App = () => {
               main: '#90caf9',
             },
             background: {
-              default: '#202C36',   // Page background
-              paper: '#2B3844',      // Cards, AppBar, etc.
+              default: '#202C36',  
+              paper: '#2B3844',      
             },
             text: {
               primary: '#ffffff',
@@ -53,12 +53,8 @@ const App = () => {
   return (
 <ThemeProvider theme={theme}>
   <CssBaseline />
-
   <Router>
-    {/* Navbar with light/dark mode toggle */}
     <Navbar toggleTheme={toggleTheme} mode={mode} />
-
-    {/* Routing to pages */}
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/country/:id" element={<CountryDetails />} />

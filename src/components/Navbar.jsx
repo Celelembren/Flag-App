@@ -2,11 +2,14 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box, Container, Button } from '@mui/material';
 import BedtimeOutlinedIcon from '@mui/icons-material/BedtimeOutlined';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
+import { useNavigate } from "react-router-dom";
+
+import lightModeLogo from '../assets/techover-logo-dark.png';
+import darkModeLogo from '../assets/techover-logo.png'; 
 
 const Navbar = ({ toggleTheme, mode }) => {
 
-  const lightModeLogo = 'assets/techover-logo-dark.png';
-  const darkModeLogo = 'assets/techover-logo.png'; 
+  const navigate = useNavigate();
 
   return (
     <AppBar position="sticky" sx={{ width: '100%', px: 0 }}>
@@ -15,9 +18,11 @@ const Navbar = ({ toggleTheme, mode }) => {
         {/* Use Box to center items inside the Toolbar */}
         <Container disableGutters maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px:{ xs: 1, md:3} }}>
           {/* Navbar Title (left-aligned) */}
-          <Typography variant="h6">
+          <Button onClick={() => navigate("/")}>
+          <Typography variant="h6" color="text.primary">
             The Flag App
           </Typography>
+          </Button>
           <Box sx={{ display: {xs: 'none', md:'flex'}, alignItems: 'center' }}>
             <img 
               src={mode === 'dark' ? darkModeLogo : lightModeLogo} 
