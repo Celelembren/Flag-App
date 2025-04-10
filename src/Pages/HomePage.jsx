@@ -13,28 +13,28 @@ import {
   MenuItem,
 } from "@mui/material";
 import CountryPage from "../components/CountryPage";
+import useCountries from "../hooks/useCountries";
 
 const HomePage = () => {
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const theme = useTheme();
   const [regionFilter, setRegionFilter] = useState("");
+  const { countries, loading } = useCountries();
 
-  useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch("https://restcountries.com/v3.1/all");
-        const data = await response.json();
-        setCountries(data);
-      } catch (error) {
-        console.error("Error fetching countries:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchCountries();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCountries = async () => {
+  //     try {
+  //       const response = await fetch("https://restcountries.com/v3.1/all");
+  //       const data = await response.json();
+  //       setCountries(data);
+  //     } catch (error) {
+  //       console.error("Error fetching countries:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchCountries();
+  // }, []);
 
   const renderSkeletons = () => (
     <Grid container spacing={4}>

@@ -113,7 +113,7 @@ const CountryDetails = () => {
       {/* Back Button */}
       <Box sx={{ mb: 4 }}>
         <Button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
 
           sx={{
             textTransform: 'none',
