@@ -29,7 +29,8 @@ const CountryPage = ({ country }) => {
       backgroundColor: theme.palette.background.paper,
       transition: 'transform 0.2s',
       '&:hover': {
-        transform: 'scale(1.02)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+        backgroundColor: '#f5f5f515',
         cursor: 'pointer',
       },
     }}

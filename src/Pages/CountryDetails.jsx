@@ -114,15 +114,14 @@ const CountryDetails = () => {
       <Box sx={{ mb: 4 }}>
         <Button
           onClick={() => navigate('/')}
-          variant="outlined"
+
           sx={{
             textTransform: 'none',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: 1,
-            backgroundColor: theme.palette.background.paper,
-            boxShadow: 2,
+
             color: theme.palette.text.primary,
             borderColor: 'transparent',
             '&:hover': {
@@ -149,7 +148,7 @@ const CountryDetails = () => {
               borderRadius: 2,
               boxShadow: 3,
               maxHeight: 400,
-              objectFit: 'cover',
+              objectFit: 'contain',
             }}
           />
         </Grid>

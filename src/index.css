@@ -7,3 +7,6 @@
   text-rendering: optimizeLegibility;
 
 }
+.card {
+  will-change: transform;
+}
