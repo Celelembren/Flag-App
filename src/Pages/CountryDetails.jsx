@@ -113,7 +113,7 @@ const CountryDetails = () => {
       {/* Back Button */}
       <Box sx={{ mb: 4 }}>
         <Button
-          onClick={() => navigate('/home')}
+          onClick={() => navigate('/')}
 
           sx={{
             textTransform: 'none',
@@ -178,15 +178,16 @@ const CountryDetails = () => {
           {borders?.length > 0 && (
             <Box mt={4}>
               <Typography fontWeight="bold" mb={1}>Border Countries:</Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2,  }}>
                 {borders.map((borderCode) => (
                   <Button
                     key={borderCode}
                     variant="outlined"
                     size="small"
                     onClick={() => navigate(`/country/${borderCode}`)}
+                    sx={{backgroundColor: theme.palette.background.paper, boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)', borderRadius: 2}}
                   >
-                    {borderCode}
+                    <Typography color="text.primary">{borderCode}</Typography> 
                   </Button>
                 ))}
               </Box>

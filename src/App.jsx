@@ -3,9 +3,8 @@ import { Box, Container, CssBaseline, Grid, InputBase, ThemeProvider, createThem
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './Pages/HomePage';
-import CountryPageMac from './components/CountryPageMac';
+
 import CountryDetails from './Pages/CountryDetails';
-import MacPage from './Pages/MacPage';
 
 const App = () => {
   const [mode, setMode] = useState('dark');
@@ -21,7 +20,7 @@ const App = () => {
             },
             background: {
               default: '#f2f2f2',
-              paper: '#fff',
+              paper: '#ffffff02',
             },
             text: {
               primary: '#000000',
@@ -57,10 +56,9 @@ const App = () => {
   <Router>
     <Navbar toggleTheme={toggleTheme} mode={mode} />
     <Routes>
-    <Route path="/" element={<CountryPageMac />} />
-      <Route path="/home" element={<HomePage />} />
+    <Route path="/" element={<HomePage />} />
       <Route path="/country/:id" element={<CountryDetails />} />
-      <Route path="/mac" element={<MacPage />} />
+
     </Routes>
   </Router>
 </ThemeProvider>
